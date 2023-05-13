@@ -1,0 +1,29 @@
+a {
+  font-weight: 600;
+}
+
+.slidev-layout.slidev-layout {
+  font-size: 1.4rem;
+}
+
+.slidev-layout blockquote,
+.slidev-layout blockquote p {
+  font-size: 1.6rem;
+  line-height: 1.8rem;
+}
+
+.contacts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.code-block-xl, .code-block-xl pre, .code-block-xl pre code {
+  font-size: 1.1rem;
+}
+
+.media-section {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 1rem;
+}

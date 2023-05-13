@@ -1,0 +1,23 @@
+{
+  "name": "ffmeg-talk",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "clean": "rm -rf dist",
+    "prebuild": "npm run clean",
+    "build": "slidev build",
+    "dev": "slidev --open",
+    "preview": "npx vite preview --host",
+    "export": "slidev export"
+  },
+  "dependencies": {
+    "@slidev/cli": "^0.40.16",
+    "@slidev/theme-default": "*",
+    "@slidev/theme-seriph": "*"
+  },
+  "devDependencies": {
+    "@iconify-json/logos": "^1.1.29",
+    "sass": "^1.62.1",
+    "unocss": "^0.51.12"
+  }
+}
