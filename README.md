@@ -2,6 +2,8 @@
 
 Slides for a [ffmpeg](https://www.ffmpeg.org/) talk.
 
+Slides are deployed with Netlify at https://ffmpeg-talk-js.netlify.app/1.
+
 ## Generator
 
 Built with [Slidev](https://github.com/slidevjs/slidev).
