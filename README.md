@@ -1,6 +1,10 @@
-# Welcome to [Slidev](https://github.com/slidevjs/slidev)!
+# ffmpeg talk
 
 Slides for a [ffmpeg](https://www.ffmpeg.org/) talk.
+
+## Generator
+
+Built with [Slidev](https://github.com/slidevjs/slidev).
 
 ## License
 
