@@ -30,6 +30,10 @@ css: unocss
 
 </div>
 
+<div class="fixed left-16 bottom-4">
+<SlidesQrCode />
+</div>
+
 <p class="fixed bottom-0 right-4 opacity-50">Speaker: Fabrizio A. Vitale</p>
 
 ---
@@ -214,10 +218,15 @@ ffplay -ss 24   public/media/big_buck_bunny.mp4
 
 # ffprobe /1
 
+Simple multimedia streams analyzer.
+
+<div class="code-block-xl py-10">
 
 ```bash
 ffprobe -hide_banner -pretty public/media/big_buck_bunny.mp4
 ```
+
+</div>
 
 <div class="p-4">
 
@@ -240,7 +249,9 @@ ffprobe -hide_banner -pretty public/media/big_buck_bunny.mp4
 ---
 
 
-# ffmpeg syntax
+# ffmpeg /1
+
+Hyper fast Audio and Video encoder.
 
 <div class="code-block-xl py-10">
 
@@ -263,9 +274,31 @@ ffmpeg
 
 ---
 
+# ffmpeg /2
+
+<div class="flex justify-center">
+  <SlidevVideo autoPlay="resume" muted autoPause="click" autoReset="slide" controls width="640">
+    <source src="/media/ffmpeg_demo.mp4" type="video/mp4">
+  </SlidevVideo>
+</div>
+
+---
+layout: fact
+---
+
+<h1>What can you do with ffmpeg?</h1>
+
+---
+layout: fact
+---
+
+<h1>Let's take a look at some examples.</h1>
+
+---
+
 # How to change video format? /1
 
-mp4 -> webm
+<p class="py-4 text-3xl"><strong>mp4 -> webm</strong></p>
 
 <div class="code-block-xl py-10">
 
@@ -278,8 +311,8 @@ ffmpeg -y -i public/media/big_buck_bunny.mp4 public/media/big_buck_bunny.webm
 <div class="p-4">
 
 - `-y` overwrite output files.
-- `-i public/media/big_buck_bunny.mp4` input file
-- `public/media/big_buck_bunny.webm ` output file
+- `-i public/media/big_buck_bunny.mp4` input file.
+- `public/media/big_buck_bunny.webm ` output file.
 
 </div>
 
@@ -326,8 +359,8 @@ ffmpeg -y -i public/media/big_buck_bunny.mp4 public/media/big_buck_bunny.mp3
 <div class="p-4">
 
 - `-y` overwrite output files.
-- `-i public/media/big_buck_bunny.mp4` input file
-- `public/media/big_buck_bunny.mp3 ` output file
+- `-i public/media/big_buck_bunny.mp4` input file.
+- `public/media/big_buck_bunny.mp3 ` output file.
 
 </div>
 
@@ -335,11 +368,11 @@ ffmpeg -y -i public/media/big_buck_bunny.mp4 public/media/big_buck_bunny.mp3
 
 # How to extract the audio from a video? / 2
 
-<div class="flex justify-between">
+<div class="flex justify-between pt-4">
 
 <v-click>
 <section class="media-section">
-<h2>Input</h2>
+<h2>Input (.mp4)</h2>
 <SeekMedia to="24">
   <SlidevVideo autoPause="click" autoReset="slide" controls width="320">
     <source src="/media/big_buck_bunny.mp4" type="video/mp4">
@@ -350,7 +383,7 @@ ffmpeg -y -i public/media/big_buck_bunny.mp4 public/media/big_buck_bunny.mp3
 
 <v-click>
 <section class="media-section">
-<h2>Output</h2>
+<h2>Output (.mp3)</h2>
 <SeekMedia to="24">
   <audio controls src="/media/big_buck_bunny.mp3" width="320" />
 </SeekMedia>
@@ -363,7 +396,7 @@ ffmpeg -y -i public/media/big_buck_bunny.mp4 public/media/big_buck_bunny.mp3
 
 # How to create a gif from a video? /1
 
-<div class="code-block-xl py-2">
+<div class="code-block-xl py-8">
 
 ```bash
 ffmpeg -y -ss 24 -t 3 \
@@ -403,7 +436,7 @@ ffmpeg -y -ss 24 -to 27 \
 
 # Issues
 
-## The output gif is quite big 
+<h2 class="my-10">The output gif is quite big and the framerate is off.</h2>
 
 <div class="code-block-xl py-10">
 
@@ -414,13 +447,13 @@ ls -lh public/media/big_buck_bunny.gif  | awk -F " " {'print $5'}
 
 </div>
 
-**Can we do better?**
+<h2 class="w-full text-center my-10">Can we do better?</h2>
 
 ---
 
 # Let's lower the frame rate and scale the gif /1
 
-<div class="code-block-xl">
+<div class="code-block-xl py-4">
 
 ```bash
 ffmpeg -y \
@@ -442,7 +475,7 @@ public/media/big_buck_bunny_fps_scale.gif
 
 # Let's lower the frame rate and scale the gif /2
 
-<div class="code-block-xl">
+<div class="code-block-xl py-2">
 
 ```bash
 ls -lh public/media/big_buck_bunny.gif  | awk -F " " {'print $5'}
@@ -454,20 +487,22 @@ ls -lh public/media/big_buck_bunny_fps_scale.gif  | awk -F " " {'print $5'}
 
 </div>
 
-<div class="flex justify-between my-8">
+<div class="flex justify-between mt-2">
 <section class="media-section">
 <h2>Before</h2>
-<img controls src="/media/big_buck_bunny.gif" width="320" />
+<img controls src="/media/big_buck_bunny.gif" width="400" />
 </section>
 <section class="media-section">
 <h2>After</h2>
-<img controls src="/media/big_buck_bunny_fps_scale.gif" width="320" />
+<img controls src="/media/big_buck_bunny_fps_scale.gif" width="400" />
 </section>
 </div>
 
 ---
 
 # Take a screenshot of a video /1
+
+<div class="code-block-xl py-4">
 
 ```bash
 ffmpeg -y \
@@ -476,6 +511,8 @@ ffmpeg -y \
 -frames:v 1 \
 public/media/big_buck_bunny_pic.jpg
 ```
+
+</div>
 
 <div class="py-4">
 
