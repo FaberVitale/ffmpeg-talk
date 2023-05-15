@@ -26,7 +26,7 @@ css: unocss
 
 <div class="first-slide">
 
-# Video Editing with ffmpeg & JS
+# ffmpeg: an introduction
 
 </div>
 
@@ -66,22 +66,25 @@ Frontend developer engineer & lead developer at **[Deltatre](https://www.deltatr
 
 ---
 layout: image-right
-image: '/images/rianne-zuur-PoxFTU7_QKo-unsplash.jpg'
+image: /images/brian-erickson-mvtkfOmca8M-unsplash.webp
 ---
 
 <h1>What's the talk about?</h1>
 
+<div class="pt-8" />
+
 <v-clicks>
 
-- [ffmpeg (native)](https://ffmpeg.org/)
-- [ffmpeg.wasm](https://ffmpegwasm.netlify.app/)
-- Video editing on the browser.
-- Video editing on the server.
+- a gentle introduction to ffmpeg
+- ffplay
+- ffprobe
+- a few practical examples
 
 </v-clicks>
 
 ---
 layout: fact
+disabled: true
 ---
 
 ## Disclaimer /1
@@ -101,7 +104,7 @@ layout: fact
 layout: fact
 ---
 
-## Disclaimer /2
+## Disclaimer
 
 
 <p class="text-xxl">
@@ -111,13 +114,13 @@ layout: fact
 <div class="flex justify-center pt-8">
   <img src="https://media.giphy.com/media/EECy1Cp6nyV9e/giphy.gif" width="480" />
 </div>
+
 ---
 
 <style>
   .blockquote-wrapper {
     padding: 1.6rem 0;
   }
-
 </style>
 
 <h1>What's ffmpeg?</h1>
@@ -126,9 +129,9 @@ layout: fact
 
 <div class="blockquote-wrapper">
 
-> A complete, cross-platform solution to record,
-> <br/> convert and stream audio and video.
-> <br />[ffmpeg website](https://ffmpeg.org/)
+> FFmpeg is the leading multimedia framework, able to decode, encode, transcode, mux, demux, stream, filter and play pretty
+> <br/>  much anything that humans and machines have created. 
+> <br /> [ffmpeg website](https://ffmpeg.org/about.html)
 
 </div>
 
@@ -148,6 +151,60 @@ layout: fact
 
 ---
 layout: 'image-right'
+image: /images/peter-stumpf-h-ySkoCRzhs-unsplash.webp
+---
+
+# A bit of history
+
+<div class="py-4 leading-10">
+The ffmpeg project started in 2000 by <a href="https://bellard.org/">Fabrice Bellard</a>.
+</div>
+<div class="py-4 leading-10">
+It was led by <a href="https://www.linkedin.com/in/michaelniedermayer">Michael Niedermayer</a> from 2004 until 2015.
+</div>
+<div class="py-4 leading-10">
+It's opensource and is published under the <a href="https://github.com/FFmpeg/FFmpeg/blob/master/LICENSE.md">LGPL-2.1-or-later or GPL-2.0-or-later</a>.
+</div>
+
+---
+layout: 'image-left'
+image: '/images/peter-stumpf-FhZEpxtTI_Y-unsplash.webp'
+---
+
+# ffmpeg today
+
+<div class="py-6 leading-8">
+ffmpeg is  widely used for basic and advanced video and audio editing.
+</div>
+<div class="py-6 leading-8">
+It is used by software such as Videolan (VLC), Blender, Youtube and Google Chrome.
+</div>
+
+<div class="py-6 leading-8">
+It's available for Mac, Windows and Linux.
+</div>
+
+---
+
+# What does ffmpeg stand for?
+
+The name of the project is a word play:
+
+<v-clicks>
+
+- "FF" for "fast forward".
+- "MPEG" for Moving Picture Experts Group, a comittee dedicated to video standards.
+
+</v-clicks>
+
+<v-click>
+<div class="flex justify-center mt-20 text-2xl">
+<strong>So ffmpeg stands for "Fast Forward Moving Picture Experts Group".</strong>
+</div>
+</v-click>
+
+---
+layout: 'image-right'
 image: '/images/peter-stumpf-i1_xsS9fBRc-unsplash.jpg'
 ---
 
@@ -155,19 +212,18 @@ image: '/images/peter-stumpf-i1_xsS9fBRc-unsplash.jpg'
 .tools-list ul li {
   font-size: 2rem;
 }
-
 </style>
 
 # ffmpeg is a suite of tools
 
-<p class="text-xl py-8"><strong>When you download ffmpeg you will have 3 executables installed on your machine.</strong></p>
+<p class="text-xl py-8"><strong>After downloading ffmpeg, you'll have 3 executables installed on your machine.</strong></p>
 
 <div class="tools-list">
 <v-clicks>
 
-- ffplay
-- ffprobe
-- ffmpeg
+- [ffplay](https://ffmpeg.org/ffplay.html)
+- [ffprobe](https://ffmpeg.org/ffprobe.html)
+- [ffmpeg](https://ffmpeg.org/ffmpeg.html)
 
 </v-clicks>
 </div>
@@ -223,7 +279,7 @@ Simple multimedia streams analyzer.
 <div class="code-block-xl py-10">
 
 ```bash
-ffprobe -hide_banner -pretty public/media/big_buck_bunny.mp4
+ffprobe -hide_banner public/media/big_buck_bunny.mp4
 ```
 
 </div>
