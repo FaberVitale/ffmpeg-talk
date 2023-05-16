@@ -76,7 +76,9 @@ image: /images/brian-erickson-mvtkfOmca8M-unsplash.webp
 - a gentle introduction to ffmpeg
 - ffplay
 - ffprobe
+- ffmpeg (CLI app)
 - a few practical examples
+- how to use ffmpeg with JS
 
 </v-clicks>
 
@@ -139,7 +141,7 @@ layout: fact
 
 <div class="blockquote-wrapper">
 
-> A powerful, quick and relatively intuitive CLI tool
+> A powerful, quick and relatively intuitive suite of CLI tools
 > <br/> to manipulate audio and videos.
 > <br/> Me
 
@@ -352,12 +354,13 @@ layout: fact
 
 # How to change video format? /1
 
-<p class="py-4 text-3xl"><strong>mp4 -> webm</strong></p>
+## mp4 (3.8MB) -> web (2.2MB)
 
 <div class="code-block-xl py-10">
 
 ```bash
-ffmpeg -y -i public/media/big_buck_bunny.mp4 public/media/big_buck_bunny.webm
+ffmpeg -y -i public/media/big_buck_bunny.mp4 \
+-vcodec libvpx -acodec libvorbis public/media/big_buck_bunny.webm
 ```
 
 </div>
@@ -366,6 +369,8 @@ ffmpeg -y -i public/media/big_buck_bunny.mp4 public/media/big_buck_bunny.webm
 
 - `-y` overwrite output files.
 - `-i public/media/big_buck_bunny.mp4` input file.
+- `-vcodec libvpx` set video codec.
+- `-acodec libvorbis` set audio codec.
 - `public/media/big_buck_bunny.webm ` output file.
 
 </div>
@@ -626,7 +631,7 @@ function extractAudio(params) {
   const parsedArgs = z.object({ input: z.string().min(3) }).parse(params);
   const childProcess = spawn(
     "ffmpeg",
-    ["-y", "-i", parsedArgs.input, `${parsedArgs.input}-node-cps.mp3`],
+    ["-y", "-i", parsedArgs.input, `${parsedArgs.input}-node.mp3`],
     { stdio: "inherit", shell: true }
   );
 
