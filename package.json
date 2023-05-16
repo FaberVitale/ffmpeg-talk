@@ -13,10 +13,15 @@
   "dependencies": {
     "@slidev/cli": "^0.40.16",
     "@slidev/theme-default": "*",
-    "@slidev/theme-seriph": "*"
+    "@slidev/theme-seriph": "*",
+    "yargs-parser": "^21.1.1",
+    "zod": "^3.21.4"
   },
   "devDependencies": {
+    "@expo/spawn-async": "^1.7.2",
     "@iconify-json/logos": "^1.1.29",
+    "@iconify-json/mdi": "^1.1.52",
+    "@types/node": "^20.1.5",
     "sass": "^1.62.1",
     "unocss": "^0.51.12"
   }

@@ -27,3 +27,7 @@ a {
   flex-flow: column nowrap;
   gap: 1rem;
 }
+
+.small-heading {
+  margin: 0.4rem 0 !important;
+}

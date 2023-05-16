@@ -50,16 +50,14 @@ Frontend developer engineer & lead developer at **[Deltatre](https://www.deltatr
 <div>
 
 <LinkedinQrCode />
-
-[Linkedin](https://it.linkedin.com/in/fabrizio-armando-vitale-659311247)
+<a href="https://it.linkedin.com/in/fabrizio-armando-vitale-659311247"><mdi-linkedin />Linkedin</a>
 
 </div>
 
 <div>
 
 <GithubQrCode />
-
-[Github](https://github.com/FaberVitale)
+<a href="https://github.com/FaberVitale"><mdi-github />Github</a>
 
 </div>
 </div>
@@ -595,4 +593,104 @@ public/media/big_buck_bunny_pic.jpg
 <h2>Output</h2>
 <img src="/media/big_buck_bunny_pic.jpg" width="400" />
 </section>
+</div>
+
+---
+layout: fact
+---
+
+# Is it possible to run ffmpeg with JS? 
+
+---
+layout: fact
+---
+
+# Of course!
+
+<div class="flex justify-center">
+<img src="https://media.giphy.com/media/w77O4Mf1juHPq/giphy.gif" width="240"/>
+</div>
+---
+
+<h1 class="small-heading">Node</h1>
+<audio src="/media/big_buck_bunny.mp4-node.mp3" controls width="320" class="fixed top-6 right-13" />
+
+```ts
+// run with "node examples/node/extract-audio.mjs --input  public/media/big_buck_bunny.mp4"
+import { spawn } from "node:child_process";
+import { z } from "zod";
+import process from "node:process";
+import parse from "yargs-parser";
+
+function extractAudio(params) {
+  const parsedArgs = z.object({ input: z.string().min(3) }).parse(params);
+  const childProcess = spawn(
+    "ffmpeg",
+    ["-y", "-i", parsedArgs.input, `${parsedArgs.input}-node-cps.mp3`],
+    { stdio: "inherit", shell: true }
+  );
+
+  childProcess.on("error", (err) => { console.log(err); process.exitCode = 1; });
+  childProcess.on("close", (code) => {
+    if (code) {
+      console.error(`ffmpeg exit code=${code}`);
+      process.exitCode = 1;
+    }
+  });
+}
+
+extractAudio(parse(process.argv.slice(2), { string: ["input"] }));
+```
+
+---
+
+<h1 class="small-heading">Deno</h1>
+<audio src="/media/big_buck_bunny.mp4-deno.mp3" controls width="320" class="fixed top-6 right-13" />
+
+```ts
+// run with "deno run -A examples/deno/extract-audio.ts --input  public/media/big_buck_bunny.mp4"
+import { parse } from "https://deno.land/std@0.187.0/flags/mod.ts";
+import { z } from "https://deno.land/x/zod@v3.21.4/mod.ts";
+
+async function extractAudio(params: unknown) {
+  const parsedArgs = z.object({ input: z.string().min(3) }).parse(params);
+  const command = new Deno.Command("ffmpeg", {
+    args: [
+      "-y",
+      "-i",
+      parsedArgs.input,
+      `${parsedArgs.input}-deno.mp3`,
+    ],
+  });
+  const { code } = await command.spawn().output()
+
+  if (code) {
+    throw new Error(`ffmpeg exit-code=${code}`);
+  }
+}
+
+await extractAudio(parse(Deno.args, { string: ["input"] }));
+```
+
+---
+layout: two-cols
+---
+
+# Thank you!
+
+## Slides
+
+- https://ffmpeg-talk-js.netlify.app/1
+- <a href="https://github.com/FaberVitale/ffmpeg-talk"><mdi-github /> source</a>
+
+## Speaker
+
+Fabrizio A. Vitale
+
+<LinkedinQrCode size="160"/>
+
+::right::
+
+<div class="flex justify-center items-center w-full h-full">
+<SlidesQrCode size="300" />
 </div>
