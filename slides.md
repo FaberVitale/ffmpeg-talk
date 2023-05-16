@@ -336,7 +336,7 @@ layout: fact
 
 # How to change video format? /1
 
-## mp4 (3.8MB) -> web (2.2MB)
+## mp4 (3.8MB) -> webm (2.2MB)
 
 <div class="code-block-xl py-10">
 
