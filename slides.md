@@ -84,24 +84,6 @@ image: /images/brian-erickson-mvtkfOmca8M-unsplash.webp
 
 ---
 layout: fact
-disabled: true
----
-
-## Disclaimer /1
-
-<p class="text-xxl">
-  <strong>This is talk is an introduction to ffmpeg, it's by no means exhaustive.</strong>
-</p>
-<p class="text-xxl">
-  <strong>It introduces the topic without going down the rabbit hole.</strong>
-</p>
-
-<div class="flex justify-center pt-8">
-  <img src="https://media.giphy.com/media/T1GWTCSrTr2tnsvq4k/giphy.gif" width="480" />
-</div>
-
----
-layout: fact
 ---
 
 ## Disclaimer
@@ -676,6 +658,27 @@ async function extractAudio(params: unknown) {
 
 await extractAudio(parse(Deno.args, { string: ["input"] }));
 ```
+
+---
+layout: fact
+---
+
+Conclusions /1
+
+<div class="text-3xl py-5">What we've shown in this talk is just the tip of the iceberg.</div>
+
+<div class="text-3xl">ffmpeg is a tool with seemingly endless possibilities.</div>
+
+---
+layout: fact
+---
+
+Conclusions /2
+
+<div class="text-3xl py-5">So... are you ready to go down the rabbit hole?</div>
+<div class="flex justify-center pt-8">
+  <img src="https://media.giphy.com/media/T1GWTCSrTr2tnsvq4k/giphy.gif" width="480" />
+</div>
 
 ---
 layout: two-cols
